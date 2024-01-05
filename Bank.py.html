@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Bank.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Bank.py</font>
+</center></td></tr></table>
+<pre><span class="s0">class </span><span class="s1">Bank</span><span class="s2">:</span>
+    <span class="s0">def </span><span class="s1">__init__</span><span class="s2">(</span><span class="s1">self</span><span class="s2">,</span><span class="s1">Username</span><span class="s2">,</span><span class="s1">Balance</span><span class="s2">=</span><span class="s3">0</span><span class="s2">):</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">name</span><span class="s2">=</span><span class="s1">Username</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">balance</span><span class="s2">=</span><span class="s1">Balance</span>
+    <span class="s0">def </span><span class="s1">deposit</span><span class="s2">(</span><span class="s1">self</span><span class="s2">,</span><span class="s1">dep</span><span class="s2">):</span>
+        <span class="s0">if </span><span class="s1">dep</span><span class="s2">&gt;</span><span class="s3">0</span><span class="s2">:</span>
+            <span class="s1">self</span><span class="s2">.</span><span class="s1">balance</span><span class="s2">+=</span><span class="s1">dep</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Rs</span><span class="s0">{</span><span class="s1">dep</span><span class="s0">} </span><span class="s4">deposited successfully&quot;</span><span class="s2">)</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Balance: RS&quot;</span><span class="s2">,</span><span class="s1">self</span><span class="s2">.</span><span class="s1">balance</span><span class="s2">)</span>
+        <span class="s0">else</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Invalid entry!&quot;</span><span class="s2">)</span>
+    <span class="s0">def </span><span class="s1">withdrawal</span><span class="s2">(</span><span class="s1">self</span><span class="s2">,</span><span class="s1">amount</span><span class="s2">):</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">amount</span><span class="s2">&gt;</span><span class="s1">self</span><span class="s2">.</span><span class="s1">balance</span><span class="s2">):</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Insufficient Balance!!&quot;</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s2">(</span><span class="s3">0</span><span class="s2">&lt;</span><span class="s1">amount</span><span class="s2">&lt;</span><span class="s1">self</span><span class="s2">.</span><span class="s1">balance</span><span class="s2">):</span>
+            <span class="s1">self</span><span class="s2">.</span><span class="s1">balance</span><span class="s2">-=</span><span class="s1">amount</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Rs</span><span class="s0">{</span><span class="s1">amount</span><span class="s0">} </span><span class="s4">withdrawn&quot;</span><span class="s2">)</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Balance: Rs&quot;</span><span class="s2">,</span><span class="s1">self</span><span class="s2">.</span><span class="s1">balance</span><span class="s2">)</span>
+        <span class="s0">else</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Invalid entry&quot;</span><span class="s2">)</span>
+    <span class="s0">def </span><span class="s1">balancecheck</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Your balance is :Rs&quot;</span><span class="s2">,</span><span class="s1">self</span><span class="s2">.</span><span class="s1">balance</span><span class="s2">)</span>
+<span class="s0">def </span><span class="s1">login</span><span class="s2">():</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;WELCOME&quot;</span><span class="s2">)</span>
+    <span class="s1">Username</span><span class="s2">=</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter username:&quot;</span><span class="s2">)</span>
+    <span class="s1">Balance</span><span class="s2">=</span><span class="s1">float</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter initial deposit: Rs&quot;</span><span class="s2">))</span>
+    <span class="s1">acc</span><span class="s2">=</span><span class="s1">Bank</span><span class="s2">(</span><span class="s1">Username</span><span class="s2">,</span><span class="s1">Balance</span><span class="s2">)</span>
+
+    <span class="s0">while True</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">''' 
+        1.Deposit 
+        2.Withdrawal 
+        3.Check balance 
+        4.Exit'''</span><span class="s2">)</span>
+        <span class="s1">sel</span><span class="s2">=</span><span class="s1">int</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Choise:&quot;</span><span class="s2">))</span>
+        <span class="s0">if </span><span class="s1">sel</span><span class="s2">==</span><span class="s3">1</span><span class="s2">:</span>
+            <span class="s1">Deposit</span><span class="s2">=</span><span class="s1">float</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter amount: Rs&quot;</span><span class="s2">))</span>
+            <span class="s1">acc</span><span class="s2">.</span><span class="s1">deposit</span><span class="s2">(</span><span class="s1">Deposit</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">sel</span><span class="s2">==</span><span class="s3">2</span><span class="s2">:</span>
+            <span class="s1">Withdraw</span><span class="s2">=</span><span class="s1">float</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Enter amount: Rs&quot;</span><span class="s2">))</span>
+            <span class="s1">acc</span><span class="s2">.</span><span class="s1">withdrawal</span><span class="s2">(</span><span class="s1">Withdraw</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">sel</span><span class="s2">==</span><span class="s3">3</span><span class="s2">:</span>
+            <span class="s1">acc</span><span class="s2">.</span><span class="s1">balancecheck</span><span class="s2">()</span>
+        <span class="s0">elif </span><span class="s1">sel</span><span class="s2">==</span><span class="s3">4</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Thank you!&quot;</span><span class="s2">)</span>
+            <span class="s0">break</span>
+
+        <span class="s0">else</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Invalid Choice&quot;</span><span class="s2">)</span>
+
+<span class="s1">login</span><span class="s2">()</span>
+
+
+
+
+
+
+</pre>
+</body>
+</html>
