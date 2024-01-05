@@ -1,0 +1,57 @@
+class Bank:
+    def __init__(self,Username,Balance=0):
+        self.name=Username
+        self.balance=Balance
+    def deposit(self,dep):
+        if dep>0:
+            self.balance+=dep
+            print(f"Rs{dep} deposited successfully")
+            print("Balance: RS",self.balance)
+        else:
+            print("Invalid entry!")
+    def withdrawal(self,amount):
+        if (amount>self.balance):
+            print("Insufficient Balance!!")
+        elif (0<amount<self.balance):
+            self.balance-=amount
+            print(f"Rs{amount} withdrawn")
+            print("Balance: Rs",self.balance)
+        else:
+            print("Invalid entry")
+    def balancecheck(self):
+        print("Your balance is :Rs",self.balance)
+def login():
+    print("WELCOME")
+    Username=input("Enter username:")
+    Balance=float(input("Enter initial deposit: Rs"))
+    acc=Bank(Username,Balance)
+
+    while True:
+        print('''
+        1.Deposit
+        2.Withdrawal
+        3.Check balance
+        4.Exit''')
+        sel=int(input("Choise:"))
+        if sel==1:
+            Deposit=float(input("Enter amount: Rs"))
+            acc.deposit(Deposit)
+        elif sel==2:
+            Withdraw=float(input("Enter amount: Rs"))
+            acc.withdrawal(Withdraw)
+        elif sel==3:
+            acc.balancecheck()
+        elif sel==4:
+            print("Thank you!")
+            break
+
+        else:
+            print("Invalid Choice")
+
+login()
+
+
+
+
+
+
